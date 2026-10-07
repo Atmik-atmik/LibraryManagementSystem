@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
+import { connectDB } from "./config/db.js";
 
 dotenv.config();
 
@@ -22,6 +23,9 @@ app.use(
 app.get("/", (req, res) => {
   res.json({ message: "Hello From Server" });
 });
+
+//DataBase connection
+connectDB()
 
 const PORT = process.env.PORT || 5000;
 
